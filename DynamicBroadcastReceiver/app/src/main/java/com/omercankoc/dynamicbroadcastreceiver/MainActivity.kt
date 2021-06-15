@@ -8,22 +8,22 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    // Definition dynamic broadcast
+    // Definition Dynamic Broadcast
     private lateinit var dynamicBroadcast : DynamicBroadcast
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize dynamic broadcast
+        // Initialize Dynamic Broadcast
         dynamicBroadcast = DynamicBroadcast()
     }
 
-    // Kullanim halindeyken batarya seviyesi duserse uyar.
+    // Kullanim halindeyken ucak moduna gecince yayini baslat.
     override fun onResume() {
         super.onResume()
 
-        // Yayin tanimla.
+        // Broadcast tanimla.
         val intentFilter : IntentFilter = IntentFilter()
         intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
 
@@ -31,9 +31,10 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(dynamicBroadcast,intentFilter)
     }
 
-    // Kullanima ara  verilirse aliciyi sonlandir.
+    // Kullanima ara verilirse yayini sonlandir.
     override fun onPause() {
-        // Aliciyi sonlandir.
+
+        // Yayini sonlandir.
         unregisterReceiver(dynamicBroadcast)
 
         super.onPause()
