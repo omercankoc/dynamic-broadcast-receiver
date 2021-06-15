@@ -1,5 +1,7 @@
 ## Dynamic Broadcast Receiver
 
+Notify when user switches to airplane mode.
+
 ### To use a broadcast from the system to use it in the application. An instance of an inherited class.
 ```kotlin
 open class DynamicBroadcast : BroadcastReceiver() {
