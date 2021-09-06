@@ -1,4 +1,4 @@
-## Dynamic Broadcast Receiver
+# Dynamic Broadcast Receiver
 
 Notify when user switches to airplane mode.
 
@@ -11,6 +11,7 @@ open class DynamicBroadcast : BroadcastReceiver() {
     }
 }
 ```
+
 ### The Broadcast Receiver needs to be added to the Manifest file.
 ```xml
 <application ... >
@@ -20,10 +21,12 @@ open class DynamicBroadcast : BroadcastReceiver() {
     <receiver android:name=".DynamicBroadcast" />
 </application>
 ```
+
 ### Definition Dynamic Broadcast.
 ```kotlin
 private lateinit var dynamicBroadcast : DynamicBroadcast
 ```
+
 ### Initialize Dynamic Broadcast.
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
      dynamicBroadcast = DynamicBroadcast()
 }
 ```
+
 ### Start the broadcast when you switch to airplane mode while in use.
 ```kotlin
 override fun onResume() {
@@ -46,6 +50,7 @@ override fun onResume() {
     registerReceiver(dynamicBroadcast,intentFilter)
 }
 ```
+
 ### End stream if use is interrupted.
 ```kotlin
 override fun onPause() {
